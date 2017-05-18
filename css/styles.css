@@ -3,6 +3,7 @@
 
 body {
 	margin: 0 auto;
+	background: #2ecc71!important;
 	
 }
 
@@ -12,13 +13,61 @@ body {
 	width:100%;
 }
 
-.content-main {
-	margin:10% auto;
+	margin: 0 auto!important;
+}
+
+.content-box {
+	background-color: #fff;
+	margin-bottom: 30px !important;
+}
+
+#content-main {
+	margin: 5% auto!important;
+	margin-bottom: 30px!important;
 }
 
 .padding {
 	margin: 50px 0;
 }
+
+
+.streamer-box {
+	background:#fff!important;
+	border-top: 1px solid black;
+	font-family: 'Roboto', 'Montserrat', sans-sarif!important;
+	font-weight:bold;
+	padding:10px;
+	display:flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+
+
+.streamer-box img {
+	margin:5px;
+}
+
+.streamer-box .streamer-user {
+	margin:5px;
+}
+
+.streamer-img {
+	max-width:10%!important;
+	border-radius: 50%;
+}
+
+.streamer-user {
+	line-height: 100%;
+}
+
+.title {
+	color:#fff;
+	font-family: 'Montserrat', sans-sarif !important;
+	font-weight:bold;
+}
+
+
 
 /* Navigation Styling */
 
