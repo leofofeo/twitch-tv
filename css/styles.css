@@ -30,6 +30,23 @@ body {
 	margin: 50px 0;
 }
 
+li.active {
+	font-weight:bold;
+}
+
+li.offline {
+	background-color:#ecf0f1!important;
+	color:black;
+	border-top-left-radius:30px;
+	font-style: italic;
+	
+}
+
+.stream-selector-tab a {
+	text-decoration: none;
+	color:black;
+}
+
 
 .streamer-box {
 	background:#fff!important;
