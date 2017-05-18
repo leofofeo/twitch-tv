@@ -71,6 +71,8 @@ var displayStreamContent = function(imgSrc, channel, url, content, game, counter
 	} else {
 		$('#' + streamingContent).html('Streaming: <em>' + content + '</em>');
 	}
+
+	addChannelSideBar(channel, counter);
 	
 }
 
@@ -97,3 +99,7 @@ $('.stream-selector-tab li').on('click', function(){
 			break;
 	}
 })
+
+var addChannelSideBar = function(channelName, id){
+	
+}
