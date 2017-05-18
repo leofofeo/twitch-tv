@@ -34,12 +34,17 @@ li.active {
 	font-weight:bold;
 }
 
-li.offline {
+li.inactive {
 	background-color:#ecf0f1!important;
 	color:black;
 	border-top-left-radius:30px;
+	border-top-right-radius: 30px;
 	font-style: italic;
 	
+}
+
+li.inactive:hover {
+	cursor: pointer;
 }
 
 .stream-selector-tab a {

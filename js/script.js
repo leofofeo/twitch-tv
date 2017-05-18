@@ -73,3 +73,27 @@ var displayStreamContent = function(imgSrc, channel, url, content, game, counter
 	}
 	
 }
+
+
+$('.stream-selector-tab li').on('click', function(){
+	var tabId = $(this).attr('id');
+	$('.stream-selector-tab li').removeClass('active').addClass('inactive');
+	$('#' + tabId).addClass('active').removeClass('inactive');
+
+	switch(tabId){
+		case 'all-streams':
+			$('.live').show();
+			$('.offline').show();
+			break;
+		case 'live-streams':
+			$('.live').show();
+			$('.offline').hide();
+			break;
+		case 'offline-streams':
+			$('.live').hide();
+			$('.offline').show();
+			break;
+		default:
+			break;
+	}
+})
