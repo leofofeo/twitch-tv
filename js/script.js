@@ -17,7 +17,8 @@ var channels = ["ESL_SC2",
 "ign"
 ];
 
-var suggestedChannels = ["riotgames",
+var suggestedChannels = ["Syndicate", 
+	"riotgames",
 	"imaqtpie",
 	"sodappin",
 	"captainsparklez",
@@ -45,8 +46,12 @@ var callTwitchAPIAddition = function(channel, counter){
 			// if(myObj.stream === null){
 			// 	return;
 			// };
+			var displayName;
 
-			var displayName = myObj.stream.channel['display_name'];
+			if(myObj.stream === null){
+				displayName = channel;
+			}
+			
 			if($.inArray(displayName, channels) === -1){
 				parseStreamContent(channel, myObj, counter);
 			} else {
