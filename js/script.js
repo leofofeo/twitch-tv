@@ -17,8 +17,7 @@ var channels = ["ESL_SC2",
 "ign"
 ];
 
-var suggestedChannels = ["Syndicate",
-	"riotgames",
+var suggestedChannels = ["riotgames",
 	"imaqtpie",
 	"sodappin",
 	"captainsparklez",
@@ -40,13 +39,15 @@ var callTwitchAPI = function(channel, counter){
 }
 
 var callTwitchAPIAddition = function(channel, counter){
-		$.getJSON('https://wind-bow.gomix.me/twitch-api/streams/'+ channel+'?callback=?', function(json){
+		$.getJSON('https://wind-bow.gomix.me/twitch-api/streams/'+ channel +'?callback=?', function(json){
 			var myStr = JSON.stringify(json);
 			var myObj = JSON.parse(myStr);
 			// if(myObj.stream === null){
 			// 	return;
 			// };
-			if($.inArray(myObj.stream.channel['display_name'], channels) === -1){
+
+			var displayName = myObj.stream.channel['display_name'];
+			if($.inArray(displayName, channels) === -1){
 				parseStreamContent(channel, myObj, counter);
 			} else {
 				alert("You've already added that channel.");
@@ -107,7 +108,21 @@ var displayChannelSideContent = function(channelName, id){
 }
 
 var applyRoundRowStyling = function(tabId){
-	var tabId = '#tabId';
+	if(tabId === 'offline-streams'){
+		console.log('offline');
+		$('.offline:first').addClass('top-reload-div');
+		$('.offline:last').addClass('bottom-reload-div');
+		$('.live:first').removeClass('top-reload-div');
+		$('.live:last').removeClass('bottom-reload-div');
+	} else if (tabId === 'live-streams') {
+		$('.offline:first').removeClass('top-reload-div');
+		$('.offline:last').removeClass('bottom-reload-div');
+		$('.live:first').addClass('top-reload-div');
+		$('.live:last').addClass('bottom-reload-div');
+	} else {
+		$('div.streamer-row').removeClass('bottom-reload-div');
+		$('div.streamer-row').removeClass('top-reload-div');
+	}
 }
 
 
@@ -120,6 +135,7 @@ $('.stream-selector-tab li').on('click', function(){
 		case 'all-streams':
 		$('.live').show();
 		$('.offline').show();
+		applyRoundRowStyling('all-streams');
 		break;
 		case 'live-streams':
 		$('.live').show();
@@ -147,13 +163,17 @@ $('#info-icon').hover(
 
 $('#btn-streamer-search').on('click', function(){
 	var searchQuery = $('#streamer-search-input').val();
+
 	if($.inArray(searchQuery, suggestedChannels) === -1){
 		alert('Due to cross-origin issues and because this is a sample project' +
 			' where an API key wasn\'t used, only channels in the suggested ' +
-			 'popular channels tooltip will be accepted as additional values. Sorry!');
+			 'popular channels tooltip will be accepted as additional values.' +
+			 ' This is because due to said issues, I am unable to use the "channels" end point '+
+			 '(as opposed to the "streams" endpoint, which is available via the non-API key URL) ' +
+			 'to verify that the channel you\'re trying to add actually exists. Sorry!');
 		return;
 	}
-	
+
 	callTwitchAPIAddition(searchQuery, channels.length);
 	
 });
