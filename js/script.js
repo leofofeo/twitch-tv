@@ -118,3 +118,14 @@ $('#info-icon').hover(
 	function(e){
 		$('#tooltip').hide();
 	});
+
+
+$('#btn-streamer-search').on('click', function(){
+	var searchQuery = $('#streamer-search-input').val();
+	if(searchQuery === ''){
+		return;
+	} else {
+		callTwitchAPI(searchQuery);
+	}
+
+});
