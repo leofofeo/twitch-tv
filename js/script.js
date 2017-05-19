@@ -15,19 +15,44 @@ var channels = ["ESL_SC2",
 "RobotCaleb",
 "KindaFunnyGames",
 "ign"
-]
+];
+
+var suggestedChannels = ["Syndicate",
+	"riotgames",
+	"imaqtpie",
+	"sodappin",
+	"captainsparklez",
+	"lirik",
+	"summit1g"
+];
 
 
 var callTwitchAPI = function(channel, counter){
-	$.getJSON('https://wind-bow.gomix.me/twitch-api/streams/'+ channel+'?callback=?', function(json){
-		var myStr = JSON.stringify(json);
-		var myObj = JSON.parse(myStr);
-		// if(myObj.stream === null){
-		// 	return;
-		// };
-		parseStreamContent(channel, myObj, counter);
-		console.log(myObj);
-	});
+		$.getJSON('https://wind-bow.gomix.me/twitch-api/streams/'+ channel+'?callback=?', function(json){
+			var myStr = JSON.stringify(json);
+			var myObj = JSON.parse(myStr);
+			// if(myObj.stream === null){
+			// 	return;
+			// };
+
+			parseStreamContent(channel, myObj, counter);
+		});	
+}
+
+var callTwitchAPIAddition = function(channel, counter){
+		$.getJSON('https://wind-bow.gomix.me/twitch-api/streams/'+ channel+'?callback=?', function(json){
+			var myStr = JSON.stringify(json);
+			var myObj = JSON.parse(myStr);
+			// if(myObj.stream === null){
+			// 	return;
+			// };
+			if($.inArray(myObj.stream.channel['display_name'], channels) === -1){
+				parseStreamContent(channel, myObj, counter);
+			} else {
+				alert("You've already added that channel.");
+				return;
+			}				
+		});	
 }
 
 var parseStreamContent = function(channel, jsonObj, counter){
@@ -47,7 +72,7 @@ var parseStreamContent = function(channel, jsonObj, counter){
 		var status = "live";		
 	};
 
-	
+	channels.push(channel);
 
 	displayStreamContent(imgSrc, channel, url, content, game, counter, status);
 }
@@ -93,21 +118,21 @@ $('.stream-selector-tab li').on('click', function(){
 
 	switch(tabId){
 		case 'all-streams':
-			$('.live').show();
-			$('.offline').show();
-			break;
+		$('.live').show();
+		$('.offline').show();
+		break;
 		case 'live-streams':
-			$('.live').show();
-			$('.offline').hide();
-			applyRoundRowStyling('live-streams');
-			break;
+		$('.live').show();
+		$('.offline').hide();
+		applyRoundRowStyling('live-streams');
+		break;
 		case 'offline-streams':
-			$('.live').hide();
-			$('.offline').show();
-			applyRoundRowStyling('offline-streams');
-			break;
+		$('.live').hide();
+		$('.offline').show();
+		applyRoundRowStyling('offline-streams');
+		break;
 		default:
-			break;
+		break;
 	}
 });
 
@@ -122,10 +147,13 @@ $('#info-icon').hover(
 
 $('#btn-streamer-search').on('click', function(){
 	var searchQuery = $('#streamer-search-input').val();
-	if(searchQuery === ''){
+	if($.inArray(searchQuery, suggestedChannels) === -1){
+		alert('Due to cross-origin issues and because this is a sample project' +
+			' where an API key wasn\'t used, only channels in the suggested ' +
+			 'popular channels tooltip will be accepted as additional values. Sorry!');
 		return;
-	} else {
-		callTwitchAPI(searchQuery);
 	}
-
+	
+	callTwitchAPIAddition(searchQuery, channels.length);
+	
 });
