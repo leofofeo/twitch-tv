@@ -7,27 +7,21 @@ body {
 	
 }
 
-.container .nomargin {
-	margin:0;
-	padding:0;
-	width:100%;
+div#streams-container > div:first-of-type {
+	border-top-left-radius: 30px!important;
+	border-top-right-radius: 30px!important;
+	
 }
 
-	margin: 0 auto!important;
+div#streams-container > div:last-of-type {
+	border-bottom-left-radius: 30px!important;
+	border-bottom-right-radius: 30px!important;
+	
 }
 
-.content-box {
-	background-color: #fff;
-	margin-bottom: 30px !important;
-}
-
-#content-main {
-	margin: 5% auto!important;
-	margin-bottom: 30px!important;
-}
-
-.padding {
-	margin: 50px 0;
+ul.stream-selector-tab {
+	margin:0 auto;
+	padding-left:30px;
 }
 
 li.active {
@@ -47,6 +41,85 @@ li.inactive:hover {
 	cursor: pointer;
 }
 
+
+#content-main {
+	margin: 5% auto!important;
+	margin-bottom: 30px!important;
+}
+
+#current-channels {
+	padding-bottom: 10px!important;
+}
+
+#current-channels-container {
+	background:#fff!important;
+	margin-left:30px!important;
+	width:20%;
+	margin-top:40px!important;
+	border-radius: 30px;
+	overflow:fixed;
+	height:400px;
+}
+
+
+#current-channels-container h2 {
+	font-weight:bold;
+	font-family: 'Roboto', sans-sarif;
+
+}
+
+#streamer-search-input {
+	width:250px;
+	border-radius:10px;
+}
+
+.bottom-reload-div {
+	border-bottom-left-radius: 30px!important;
+	border-bottom-right-radius: 30px!important;
+}
+
+.top-reload-div {
+	border-top-left-radius: 30px!important;
+	border-top-right-radius: 30px!important;
+}
+
+.container .nomargin {
+	margin: 0;
+	padding:0;
+	width:100%;
+}
+
+	
+
+.content-box {
+	margin-bottom: 30px !important;
+	margin: 0 auto!important;
+
+}
+
+.nav-tabs {
+	border-bottom: none!important;
+}
+
+
+.padding {
+	margin: 50px 0;
+}
+
+.search-streamer {
+	float:right;
+	padding-right:50px!important;
+	display: flex;
+	flex-wrap: space-around;
+}
+
+.side-channel {
+	color:#2980b9;
+	font-size:.8em;
+	font-weight: bold;
+	padding-top:10px!important;
+}
+
 .stream-selector-tab a {
 	text-decoration: none;
 	color:black;
@@ -55,7 +128,7 @@ li.inactive:hover {
 
 .streamer-box {
 	background:#fff!important;
-	border-top: 1px solid black;
+	border-top: .5px solid gray;
 	font-family: 'Roboto', 'Montserrat', sans-sarif!important;
 	font-weight:bold;
 	padding:10px;

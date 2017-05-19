@@ -72,7 +72,7 @@ var displayStreamContent = function(imgSrc, channel, url, content, game, counter
 		$('#' + streamingContent).html('Streaming: <em>' + content + '</em>');
 	}
 
-	addChannelSideBar(channel, counter);
+	displayChannelSideContent(channel, counter);
 	
 }
 
@@ -90,16 +90,23 @@ $('.stream-selector-tab li').on('click', function(){
 		case 'live-streams':
 			$('.live').show();
 			$('.offline').hide();
+			applyRoundRowStyling('live-streams');
 			break;
 		case 'offline-streams':
 			$('.live').hide();
 			$('.offline').show();
+			applyRoundRowStyling('offline-streams');
 			break;
 		default:
 			break;
 	}
 })
 
-var addChannelSideBar = function(channelName, id){
-	
+var displayChannelSideContent = function(channelName, id){
+	var sideChannelId = 'side-channel-' + id;
+	$('#current-channels').append('<div class="side-channel" id="' + sideChannelId + '">' + channelName +'</div>');
+}
+
+var applyRoundRowStyling = function(tabId){
+	var tabId = '#tabId';
 }

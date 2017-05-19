@@ -81,9 +81,15 @@
 
         <section id="content-main">
           <div class="container">
-
             <div class="row">
-              <div class="col-md-1"></div>
+              <div class="col-md-8"></div>
+              <div class="col-md-4 search-streamer content-box">
+                <input type="input" name="new-streamer" placeholder="  Add new Channels to the results" id="streamer-search-input">
+                <button class="btn bt-default" id="btn-streamer-search"><i class="fa fa-search"></i></button>
+                <i class="fa fa-info"></i>
+              </div>
+            </div>
+            <div class="row">
               <div class="col-md-7 text-center content-box" id="streams-container">
                 <ul class="nav nav-tabs stream-selector-tab">
                 <li role="presentation" class="active" id="all-streams"><a >All streams</a></li>
@@ -93,11 +99,14 @@
 
               </div> <!-- End of stream info box -->
 
-              <div class="col-md-4"> <!-- Start of additional info column -->
+
+              <div class="col-md-1"></div>
+              <div class="col-md-4 text-center content-box" id="current-channels-container"> <!-- Start of additional info column -->
                 <h2>
                   Current channels:
                 </h2>
                 <div id="current-channels">
+                  <div></div>
                   
                 </div>
               </div> <!-- end of additional info column -->
