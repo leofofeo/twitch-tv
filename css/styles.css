@@ -68,6 +68,32 @@ li.inactive:hover {
 
 }
 
+#info-icon {
+	color:#fff;
+	background-color: #2980b9;
+	padding:10px;
+	border-radius: 20%;
+}
+
+#info-icon:hover {
+	cursor: help;
+}
+
+#tooltip {
+	display:none;
+	border: 1px solid #27ae60;
+	position:absolute;
+	width:150px;
+	background-color: #ecf0f1;
+	color:#2c3e50;
+	padding: 10px;
+	text-align: center;
+	border-radius:20%;
+	z-index: 100;
+	margin-top:0;
+	bottom:30px;
+}
+
 #streamer-search-input {
 	width:250px;
 	border-radius:10px;
@@ -110,7 +136,13 @@ li.inactive:hover {
 	float:right;
 	padding-right:50px!important;
 	display: flex;
-	flex-wrap: space-around;
+	justify-content: center;
+	align-items: center;
+}
+
+.search-streamer * {
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .side-channel {
@@ -134,8 +166,6 @@ li.inactive:hover {
 	padding:10px;
 	display:flex;
 	flex-flow: row wrap;
-	align-items: center;
-	justify-content: space-around;
 }
 
 
@@ -163,7 +193,11 @@ li.inactive:hover {
 	font-weight:bold;
 }
 
-
+.tooltip-streamers {
+	color:#2ecc71;
+	font-weight: bold;
+	font-family: 'Roboto', sans-sarif!important;
+}
 
 /* Navigation Styling */
 

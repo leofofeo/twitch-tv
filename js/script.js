@@ -76,6 +76,15 @@ var displayStreamContent = function(imgSrc, channel, url, content, game, counter
 	
 }
 
+var displayChannelSideContent = function(channelName, id){
+	var sideChannelId = 'side-channel-' + id;
+	$('#current-channels').append('<div class="side-channel" id="' + sideChannelId + '">' + channelName +'</div>');
+}
+
+var applyRoundRowStyling = function(tabId){
+	var tabId = '#tabId';
+}
+
 
 $('.stream-selector-tab li').on('click', function(){
 	var tabId = $(this).attr('id');
@@ -100,13 +109,12 @@ $('.stream-selector-tab li').on('click', function(){
 		default:
 			break;
 	}
-})
+});
 
-var displayChannelSideContent = function(channelName, id){
-	var sideChannelId = 'side-channel-' + id;
-	$('#current-channels').append('<div class="side-channel" id="' + sideChannelId + '">' + channelName +'</div>');
-}
-
-var applyRoundRowStyling = function(tabId){
-	var tabId = '#tabId';
-}
+$('#info-icon').hover(
+	function(e){
+		$('#tooltip').show();
+	},
+	function(e){
+		$('#tooltip').hide();
+	});
