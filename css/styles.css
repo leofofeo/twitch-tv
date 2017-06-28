@@ -3,11 +3,10 @@
 
 body {
 	margin: 0 auto;
-	background: #2ecc71!important;
 	
 }
 
-div#streams-container > div:first-of-type {
+/*div#streams-container > div:first-of-type {
 	border-top-left-radius: 30px!important;
 	border-top-right-radius: 30px!important;
 	
@@ -17,7 +16,7 @@ div#streams-container > div:last-of-type {
 	border-bottom-left-radius: 30px!important;
 	border-bottom-right-radius: 30px!important;
 	
-}
+}*/
 
 ul.stream-selector-tab {
 	margin:0 auto;
@@ -31,8 +30,6 @@ li.active {
 li.inactive {
 	background-color:#ecf0f1!important;
 	color:black;
-	border-top-left-radius:30px;
-	border-top-right-radius: 30px;
 	font-style: italic;
 	
 }
@@ -56,9 +53,9 @@ li.inactive:hover {
 	margin-left:30px!important;
 	width:20%;
 	margin-top:40px!important;
-	border-radius: 30px;
 	overflow:auto;
 	height:400px;
+	border:.5px solid black;
 }
 
 
@@ -66,6 +63,10 @@ li.inactive:hover {
 	font-weight:bold;
 	font-family: 'Roboto', sans-sarif;
 
+}
+
+#header-section {
+	background: #2ecc71!important;
 }
 
 #info-icon {
@@ -99,6 +100,10 @@ li.inactive:hover {
 	border-radius:10px;
 }
 
+#streams-container {
+	border-bottom:.5px solid black;
+}
+
 .bottom-reload-div {
 	border-bottom-left-radius: 30px!important;
 	border-bottom-right-radius: 30px!important;
@@ -120,7 +125,6 @@ li.inactive:hover {
 .content-box {
 	margin-bottom: 30px !important;
 	margin: 0 auto!important;
-
 }
 
 .nav-tabs {
@@ -133,15 +137,13 @@ li.inactive:hover {
 }
 
 .search-streamer {
-	float:right;
-	padding-right:50px!important;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding-bottom:40px;
 }
 
 .search-streamer * {
-	margin-left: 5px;
 	margin-right: 5px;
 }
 
@@ -187,7 +189,20 @@ li.inactive:hover {
 	/*line-height: 100%;*/
 }
 
+.streamer-row {
+	border-right: .5px solid black;
+	border-left: .5px solid black;
+}
+
 .title {
+	padding: 20px 40px;
+}
+
+.title h1 {
+	text-decoration: underline;
+}
+
+.title h1, .title h3 {
 	color:#fff;
 	font-family: 'Montserrat', sans-sarif !important;
 	font-weight:bold;
@@ -204,6 +219,7 @@ li.inactive:hover {
 .navbar {
 	/*background: #34495e!important;*/
 	padding:20px;
+	margin-bottom:0!important;
 }
 
 

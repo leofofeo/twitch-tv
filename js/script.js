@@ -9,21 +9,22 @@ $('document').ready(function(){
 var channels = ["ESL_SC2", 
 "OgamingSC2", 
 "cretetion", 
-"freecodecamp", 
-"storbeck", 
-"habathcx", 
 "RobotCaleb",
 "KindaFunnyGames",
-"ign"
+"ign",
+"StreamerHouse",
+"Bacon_Donut"
 ];
 
 var suggestedChannels = ["Syndicate", 
 	"riotgames",
 	"imaqtpie",
 	"sodappin",
-	"captainsparklez",
+	"insomniaPC",
 	"lirik",
-	"summit1g"
+	"AmazHS",
+	"Monstercat",
+	"AnomalyXd"
 ];
 
 
@@ -31,9 +32,7 @@ var callTwitchAPI = function(channel, counter){
 		$.getJSON('https://wind-bow.gomix.me/twitch-api/streams/'+ channel+'?callback=?', function(json){
 			var myStr = JSON.stringify(json);
 			var myObj = JSON.parse(myStr);
-			// if(myObj.stream === null){
-			// 	return;
-			// };
+		
 
 			parseStreamContent(channel, myObj, counter);
 		});	
@@ -112,23 +111,23 @@ var displayChannelSideContent = function(channelName, id){
 	$('#current-channels').append('<div class="side-channel" id="' + sideChannelId + '">' + channelName +'</div>');
 }
 
-var applyRoundRowStyling = function(tabId){
-	if(tabId === 'offline-streams'){
-		console.log('offline');
-		$('.offline:first').addClass('top-reload-div');
-		$('.offline:last').addClass('bottom-reload-div');
-		$('.live:first').removeClass('top-reload-div');
-		$('.live:last').removeClass('bottom-reload-div');
-	} else if (tabId === 'live-streams') {
-		$('.offline:first').removeClass('top-reload-div');
-		$('.offline:last').removeClass('bottom-reload-div');
-		$('.live:first').addClass('top-reload-div');
-		$('.live:last').addClass('bottom-reload-div');
-	} else {
-		$('div.streamer-row').removeClass('bottom-reload-div');
-		$('div.streamer-row').removeClass('top-reload-div');
-	}
-}
+// var applyRoundRowStyling = function(tabId){
+// 	if(tabId === 'offline-streams'){
+// 		console.log('offline');
+// 		$('.offline:first').addClass('top-reload-div');
+// 		$('.offline:last').addClass('bottom-reload-div');
+// 		$('.live:first').removeClass('top-reload-div');
+// 		$('.live:last').removeClass('bottom-reload-div');
+// 	} else if (tabId === 'live-streams') {
+// 		$('.offline:first').removeClass('top-reload-div');
+// 		$('.offline:last').removeClass('bottom-reload-div');
+// 		$('.live:first').addClass('top-reload-div');
+// 		$('.live:last').addClass('bottom-reload-div');
+// 	} else {
+// 		$('div.streamer-row').removeClass('bottom-reload-div');
+// 		$('div.streamer-row').removeClass('top-reload-div');
+// 	}
+// }
 
 
 $('.stream-selector-tab li').on('click', function(){
@@ -140,17 +139,14 @@ $('.stream-selector-tab li').on('click', function(){
 		case 'all-streams':
 		$('.live').show();
 		$('.offline').show();
-		applyRoundRowStyling('all-streams');
 		break;
 		case 'live-streams':
 		$('.live').show();
 		$('.offline').hide();
-		applyRoundRowStyling('live-streams');
 		break;
 		case 'offline-streams':
 		$('.live').hide();
 		$('.offline').show();
-		applyRoundRowStyling('offline-streams');
 		break;
 		default:
 		break;
